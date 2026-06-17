@@ -1,6 +1,6 @@
 import { Component, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { TipoTransacao, Transacao } from '../modelos/transacao';
+import { TipoTransacao, ModeloTransacao } from '../modelos/transacao';
 import { KeyValuePipe } from '@angular/common';
 
 @Component({
@@ -13,12 +13,12 @@ export class FormNovaTransacao {
   tipoTransacao = '';
   valorTransacao = '';
 
-  transacaoCriada = output<Transacao>();
+  transacaoCriada = output<ModeloTransacao>();
 
   tipoTransacaoEnum = TipoTransacao;
 
   aoSubmeter() {
-    const transacao = new Transacao(
+    const transacao = new ModeloTransacao(
       this.tipoTransacao as TipoTransacao,
       Number(this.valorTransacao),
     );
